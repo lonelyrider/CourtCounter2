@@ -3,7 +3,6 @@ package com.example.android.courtcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Connects Java with the toolbar from the XML
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Sets the basketball icon.
@@ -55,17 +54,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND); //type of action send/receive
                 shareIntent.setType("text/plain"); // This is the type of content shared text, video, audio
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "BASKETBALL SCORE COUNTER APP");
-                /**We changed the methods for Display Score For Team A and Display Score For Team B into "public int" so it can retrieved as an integer.
-                 * We chose to "return score" at the end of those methods.**/
+                /*We changed the methods for Display Score For Team A and Display Score For Team B into "public int" so it can retrieved as an integer.
+                  We chose to "return score" at the end of those methods.*/
 
-                /** HERE!!!*/int v1 = displayForTeamA(scoreTeamA); // returns score for Team A from the method displayForTeamA()
-                /** HERE!!!*/int v2 = displayForTeamB(scoreTeamB); // returns score for Team B from the method displayForTeamB()
+                /* HERE!!!*/
+                int v1 = displayForTeamA(scoreTeamA); // returns score for Team A from the method displayForTeamA()
+                /* HERE!!!*/
+                int v2 = displayForTeamB(scoreTeamB); // returns score for Team B from the method displayForTeamB()
 
-                /**  Next line writes the sharing content*/
+                /*  Next line writes the sharing content*/
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "BASKETBALL SCORE SHARING\nNever lose track again!\nOur score is\n" + "Team A: " + v1 + "\nvs.\n" + "Team B: " + v2 );
-                startActivity(Intent.createChooser(shareIntent, "Share Via"));/**  When you choose where to share it e.g. gmail, Messenger, Whatsapp
+                startActivity(Intent.createChooser(shareIntent, "Share Via"));/*  When you choose where to share it e.g. gmail, Messenger, Whatsapp
                                                                                         it shows the message Share Via above the sharing layout*/
-                break;/** I don't know what these lines do break default break????Help */
+                break;/* I don't know what these lines do break default break????Help */
             default:
                 break;
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A. We use it in the next methods for displaying score.
      */
     public int displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        TextView scoreView = findViewById(R.id.team_a_score);
         scoreView.setText(String.valueOf(score));
         return score; // you can call this method in a variable e.g. int v1 and int v2 !!!LOOK UP!!!
     }
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B. We use it in the next methods for displaying score.
      */
     public int displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        TextView scoreView = findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
         return score;
     }
@@ -143,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A. We use it in resetButton method.
      */
     public void resetScoreTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        TextView scoreView = findViewById(R.id.team_a_score);
         scoreView.setText(String.valueOf(score));
     }
     /**
      * Displays the given score for Team B. We use it in resetButton method.
      */
     public void resetScoreTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        TextView scoreView = findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
     }
 
