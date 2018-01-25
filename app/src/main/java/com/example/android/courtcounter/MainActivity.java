@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "BASKETBALL SCORE SHARING\nNever lose track again!\nOur score is\n" + "Team A: " + v1 + "\nvs.\n" + "Team B: " + v2 );
                 startActivity(Intent.createChooser(shareIntent, "Share Via"));/*  When you choose where to share it e.g. gmail, Messenger, Whatsapp
                                                                                         it shows the message Share Via above the sharing layout*/
-                break;/* I don't know what these lines do break default break????Help */
+                break;
             default:
                 break;
 
@@ -164,5 +164,8 @@ public class MainActivity extends AppCompatActivity {
         resetScoreTeamA(scoreTeamA);
         resetScoreTeamB(scoreTeamB);
     }
+
+    //onSaveInstanceState()
+    //onRestoreInstanceState()
 
 }
